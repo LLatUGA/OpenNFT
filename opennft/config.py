@@ -25,16 +25,19 @@ PTB_MATLAB_NAME = 'MATLAB_NFB_PTB'
 SPM_MATLAB_NAME = 'MATLAB_NFB_SPM'
 MODEL_HELPER_MATLAB_NAME = 'MATLAB_NFB_MODEL_HELPER'
 
-MAIN_MATLAB_STARTUP_OPTIONS = '-nodesktop'
-PTB_MATLAB_STARTUP_OPTIONS = '-desktop'
-SPM_MATLAB_STARTUP_OPTIONS = '-nodesktop'
-MODEL_HELPER_MATLAB_STARTUP_OPTIONS = '-nodesktop'
+# 2023-10-12, LL: nosoftwareopengl option added in lines below
+MAIN_MATLAB_STARTUP_OPTIONS = '-nodesktop -nosoftwareopengl'
+PTB_MATLAB_STARTUP_OPTIONS = '-desktop -nosoftwareopengl'
+SPM_MATLAB_STARTUP_OPTIONS = '-nodesktop -nosoftwareopengl'
+MODEL_HELPER_MATLAB_STARTUP_OPTIONS = '-nodesktop -nosoftwareopengl'
 
 MATLAB_NAME_SUFFIX = ''
 
 # MRI scan file extensions
 DICOM_FILES_EXTENSION = '.dcm'
 IMAPH_FILES_EXTENSION = '.img'
+# 2023-10-12, LL: nii file extension declared
+NIFTI_FILES_EXTENSION = '.nii'
 
 # MRI triggering is required
 USE_MRPULSE = False

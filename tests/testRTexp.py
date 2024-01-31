@@ -17,15 +17,18 @@ import glob
 
 delete_files = True
 
-mask = "001_000030_000"
+#mask = "001_000030_000"
+mask = "BL_FE-EPI_3mm_MB2_5dyn_e1_d"
 #fns = [1, 2, 3, 4, 6, 5, 7, 8]
 fns = None
 
 testCase = 'PSC'
 
 if testCase == 'PSC':
-    srcpath = '//canif/neurospin/psy_sbox/NF_BD/pilot_study/pilot_01/ses-neurofeedback/raw_data'
-    dstpath = 'C:/Users/pp262170/Documents/NF_BD/OpenNFT/workfolder/test_offline'
+#    srcpath = '//canif/neurospin/psy_sbox/NF_BD/pilot_study/pilot_01/ses-neurofeedback/raw_data'
+#    dstpath = 'C:/Users/pp262170/Documents/NF_BD/OpenNFT/workfolder/test_offline'
+    srcpath = '/WorkSpace/drinData_20230913_144201'
+    dstpath = '/WorkSpace/TestOffline'
     pause_in_sec = 2
 
 elif testCase == 'SVM':

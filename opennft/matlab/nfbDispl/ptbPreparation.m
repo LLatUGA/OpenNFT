@@ -309,9 +309,11 @@ if strcmp(protName, 'Inter')
     end
 
     if device == 1
-        P.device_buttons = 'Arduino LLC Arduino Leonardo';
+%        P.device_buttons = 'Arduino LLC Arduino Leonardo';
+        P.device_buttons = 'curdes.com fORP Interface';
     elseif device == 2
-        P.device_buttons = 'Clavier';
+%        P.device_buttons = 'Clavier';
+        P.device_buttons = 'Virtual core XTEST keyboard';
     end
 
     session = questdlg('Is it a neurofeedback session or a transfert session ?', ...

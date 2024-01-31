@@ -42,6 +42,8 @@ import re
 import fnmatch
 import threading
 import multiprocessing
+# 2023-10-31, AD
+import shutil
 
 from loguru import logger
 
@@ -773,6 +775,12 @@ class OpenNFT(QWidget):
                 self.engSPM.assignin('base', 'dimTemplMotCorr',
                                      self.eng.evalin('base', 'mainLoopData.dimTemplMotCorr'),
                                      nargout=0)
+# 2023-10-31, AD 
+            fname2 = fname
+            logger.info('fname2 {}', fname2)
+            fname2 = fname[:-5] + '2.nii'
+            logger.info('fname2 {}', fname2)
+            shutil.copy(fname, fname2)
 
         # Main logic
         # data preprocessing
@@ -1005,6 +1013,9 @@ class OpenNFT(QWidget):
         if not ext:
             if self.P['DataType'] == 'IMAPH':
                 ext = config.IMAPH_FILES_EXTENSION
+# 2023-10-12, LL
+            elif self.P['DataType'] == 'NIFTI':
+                ext = config.NIFTI_FILES_EXTENSION
             else:  # dicom as default
                 ext = config.DICOM_FILES_EXTENSION
         else:
@@ -1037,6 +1048,9 @@ class OpenNFT(QWidget):
         if not ext:
             if self.P['DataType'] == 'IMAPH':
                 ext = config.IMAPH_FILES_EXTENSION
+# 2023-10-12, LL
+            elif self.P['DataType'] == 'NIFTI':
+                ext = config.NIFTI_FILES_EXTENSION
             else:  # dicom as default
                 ext = config.DICOM_FILES_EXTENSION
         else:
@@ -1818,7 +1832,9 @@ class OpenNFT(QWidget):
         self.cbUDPSendCondition.setChecked(str(self.settings.value('UDPSendCondition')).lower() == 'true')
 
         # --- bottom right ---
-        idx = self.cbDataType.findText(self.settings.value('DataType', 'DICOM'))
+#        idx = self.cbDataType.findText(self.settings.value('DataType', 'DICOM'))
+# 2023-09-15, LL
+        idx = self.cbDataType.findText(self.settings.value('DataType', 'NIFTI'))
         if idx >= 0:
             self.cbDataType.setCurrentIndex(idx)
         self.cbgetMAT.setChecked(str(self.settings.value('GetMAT')).lower() == 'true')
